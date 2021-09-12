@@ -1,4 +1,4 @@
-import "../assets/stylesheets.css"
+import "assets/main.css"
 
 import { Core } from "domodel"
 

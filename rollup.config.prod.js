@@ -31,6 +31,7 @@ export default {
 		alias({
 			entries: [
 				{ find:/^lib\/(.*)/, replacement: "./lib/$1" },
+				{ find:/^assets\/(.*)/, replacement: "./assets/$1" },
 				{ find:/^data\/(.*)/, replacement: "./data/$1" },
 				{ find:/^\.env\.js$/, replacement: "./.env.js" }
 			]
