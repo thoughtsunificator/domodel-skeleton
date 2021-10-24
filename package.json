@@ -28,7 +28,7 @@
 	},
 	"homepage": "https://github.com/thoughtsunificator/domodel-skeleton#readme",
 	"dependencies": {
-		"css-generics": "^1.0.0",
+		"css-generics": "latest",
 		"domodel": "latest"
 	}
 }
