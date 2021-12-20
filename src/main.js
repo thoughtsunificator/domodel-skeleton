@@ -1,13 +1,18 @@
-import "assets/main.css"
+import "./main.css"
 
 import { Core } from "domodel"
 
-import ModelModel from "/model/model.js"
-import ModelBinding from "/model/model.binding.js"
+import AppModel from "./model/app.js"
+import AppBinding from "./model/app.binding.js"
+
+import App from "./object/app.js"
 
 window.addEventListener("load", function() {
-	Core.run(ModelModel, {
-		binding: new ModelBinding(),
+
+	const app = new App("Your domodel app is running!")
+	Core.run(AppModel, {
+		binding: new AppBinding({ app }),
 		parentNode: document.body
 	})
+
 })

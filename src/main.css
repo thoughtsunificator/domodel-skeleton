@@ -1,0 +1,12 @@
+@import "css-generics";
+@import "./model/**/*.css";
+
+body {
+	background-color: #262525;
+	display: grid;
+	place-content: center;
+	place-items: center;
+	height: 100vh;
+	font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+	color: #ddd;
+}
