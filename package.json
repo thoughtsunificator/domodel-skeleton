@@ -16,8 +16,8 @@
 		"build": "rollup --config rollup.config.js --environment BUILD:production",
 		"test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
 		"generate-docs": "jsdoc --configure .jsdoc.json --verbose",
-		"eslint": "eslint src/**/*.js",
-		"stylelint": "stylelint src/**/*.css"
+		"eslint": "eslint 'src/**/*.js'",
+		"stylelint": "stylelint 'src/**/*.css'"
 	},
 	"devDependencies": {
 		"@esm-bundle/chai": "^4.3.4-fix.0",
