@@ -1,10 +1,7 @@
 import path from "path"
-import del from "rollup-plugin-delete"
-import eslint from '@rollup/plugin-eslint';
 import postcss from "rollup-plugin-postcss"
 import postcssImport from "postcss-import"
 import postcssEasyImport  from "postcss-easy-import"
-import stylelint  from "rollup-plugin-stylelint"
 import { terser } from "rollup-plugin-terser"
 import copy from "rollup-plugin-copy-watch"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
@@ -22,20 +19,7 @@ export default {
 		sourcemap: isDevelopment
 	},
 	plugins: [
-		del({
-			runOnce: true,
-			targets: "dist"
-		}),
-		eslint({
-			include: ".eslintrc.json",
-			throwOnError: true
-		}),
-		stylelint({
-			throwOnError: true,
-			include: ["**/*.css"]
-		}),
 		postcss({
-			extract: true,
 			minimize: isProduction,
 			sourceMap: isDevelopment,
 			extract: true,
@@ -52,12 +36,6 @@ export default {
 			contentBase: "dist",
 			port: 3000
 		}),
-		isDevelopment && livereload({
-			delay: 500,
-			watch: [
-			 path.resolve(__dirname, 'src')
-		 ],
-		 exts: [ 'html', 'js', 'css' ]
-		})
+		isDevelopment && livereload("dist")
 	]
 }
