@@ -12,8 +12,8 @@
 	"homepage": "https://github.com/thoughtsunificator/domodel-skeleton#readme",
 	"author": "Romain Lebesle <oss@thoughtsunificator.me> (https://thoughtsunificator.me)",
 	"scripts": {
-		"start": "rollup --config rollup.config.js --watch --environment BUILD:development",
-		"build": "rollup --config rollup.config.js --environment BUILD:production",
+		"start": "rollup --config rollup.config.mjs --watch --environment BUILD:development",
+		"build": "rollup --config rollup.config.mjs --environment BUILD:production",
 		"test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
 		"generate-docs": "jsdoc --configure .jsdoc.json --verbose",
 		"eslint": "eslint 'src/**/*.js'",
@@ -23,6 +23,7 @@
 		"@esm-bundle/chai": "^4.3.4-fix.0",
 		"@rollup/plugin-alias": "^3.1.2",
 		"@rollup/plugin-node-resolve": "^13.1.1",
+		"@thoughtsunificator/rollup-plugin-window-env": "^1.0.7",
 		"@web/test-runner": "^0.13.22",
 		"docdash": "^1.2.0",
 		"eslint": "^8.5.0",

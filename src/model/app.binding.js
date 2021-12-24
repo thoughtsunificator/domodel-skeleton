@@ -21,7 +21,9 @@ class AppBinding extends Binding {
 
 		this.root.textContent = app.message
 
-		app.emit("log", "App hass started!")
+		console.log(FOO)
+
+		app.emit("log", "App has started!")
 
 	}
 
