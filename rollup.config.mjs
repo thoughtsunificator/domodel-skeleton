@@ -7,6 +7,7 @@ import copy from "rollup-plugin-copy-watch"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import serve from "rollup-plugin-serve"
 import livereload from "rollup-plugin-livereload"
+import rollupWindowEnv from "@thoughtsunificator/rollup-plugin-window-env"
 
 const isProduction = process.env.BUILD === "production"
 const isDevelopment = !isProduction
@@ -19,15 +20,16 @@ export default {
 		sourcemap: isDevelopment
 	},
 	plugins: [
+		rollupWindowEnv({ envPath : ".env.json", confPath : "data/config.json" }),
 		postcss({
 			minimize: isProduction,
 			sourceMap: isDevelopment,
 			extract: true,
 			plugins: [postcssEasyImport(), postcssImport()]
 		}),
-		terser(),
+		isProduction && terser(),
 		copy({
-			watch: isDevelopment ? 'public' : false,
+			watch: isDevelopment ? "public" : false,
 			targets: [{ src: "public/*", dest: "dist" }],
 			flatten: false
 		}),
