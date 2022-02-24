@@ -2,8 +2,7 @@ import "./main.css"
 
 import { Core } from "domodel"
 
-import AppModel from "./model/app.js"
-import AppBinding from "./model/app.binding.js"
+import AppModel, { AppBinding } from "./model/app.js"
 
 import App from "./object/app.js"
 

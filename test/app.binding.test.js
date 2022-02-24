@@ -11,12 +11,12 @@ let rootBinding
 
 describe("App", () => {
 
-	it("setUp", () => {
+	beforeEach(() => {
 		rootBinding = new Binding()
 		Core.run(RootModel, { parentNode: document.body, binding: rootBinding })
 	})
 
-	it("tearDown", () => {
+	afterEach(() => {
 		rootBinding.remove()
 	})
 
@@ -29,6 +29,7 @@ describe("App", () => {
 		const binding = new AppBinding({ app })
 		rootBinding.run(AppModel, { binding })
 		expect(binding.root.textContent).to.equal("Your domodel app is running!")
+		expect(document.querySelector("#app")).to.equal(binding.root)
 	})
 
 })

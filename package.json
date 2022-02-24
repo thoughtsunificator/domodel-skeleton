@@ -47,5 +47,6 @@
 	"dependencies": {
 		"css-generics": "latest",
 		"domodel": "latest"
-	}
+	},
+	"version": "0.0.1"
 }
