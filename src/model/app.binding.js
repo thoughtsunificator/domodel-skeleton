@@ -16,15 +16,8 @@ class AppBinding extends Binding {
 	}
 
 	onCreated() {
-
-		const { app } = this.properties
-
-		this.root.textContent = app.message
-
-		console.log(window.FOO)
-
-		app.emit("log", "App has started!")
-
+		this.root.textContent = this.properties.app.message
+		this.properties.app.emit("log", "App has started!")
 	}
 
 }
