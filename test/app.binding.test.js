@@ -11,12 +11,12 @@ let rootBinding
 
 describe("App", () => {
 
-	it("setUp", () => {
+	beforeEach(() => {
 		rootBinding = new Binding()
 		Core.run(RootModel, { parentNode: document.body, binding: rootBinding })
 	})
 
-	it("tearDown", () => {
+	afterEach(() => {
 		rootBinding.remove()
 	})
 
