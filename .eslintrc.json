@@ -1,7 +1,9 @@
 {
 	"root": true,
 	"env": {
-		"browser": true
+		"browser": true,
+		"node": true,
+		"es2022": true
 	},
 	"parserOptions": {
 		"ecmaVersion": "latest",
@@ -19,11 +21,6 @@
 	"plugins": [
 		"eslint-plugin",
 		"import"
-	],
-	"extends": [
-		"eslint:recommended",
-		"plugin:eslint-plugin/recommended",
-		"plugin:import/recommended"
 	],
 	"rules": {
 		"comma-style": [1, "last"],
@@ -63,7 +60,7 @@
 	"settings": {
 		"import/resolver": {
 			"node": {
-				"extensions": [".js"]
+				"extensions": [".js", ".ts"]
 			}
 		}
 	}
