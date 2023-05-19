@@ -1,15 +1,11 @@
-import { expect } from '@esm-bundle/chai'
 import App from "../src/object/app.js"
+import test from "ava"
 
-describe("App", () => {
-
-	it("instance", () => {
-		const date = new Date()
-		const app = new App("foo")
-		expect(app.message).to.equal("foo")
-		expect(() => {
-			app.message = null
-		 }).to.throw(Error)
-	})
-
+test("App instance", (t) => {
+	const app = new App("foo")
+	t.is(app.message, "foo")
+	t.throws(() => {
+		app.message = null
+	}, { instanceOf: Error })
 })
+

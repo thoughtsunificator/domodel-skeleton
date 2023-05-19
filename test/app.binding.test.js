@@ -1,5 +1,6 @@
-import { expect } from '@esm-bundle/chai';
+import test from "ava"
 import { Core, Binding } from "domodel"
+import { JSDOM } from "jsdom"
 
 import AppModel from "../src/model/app.js"
 import AppBinding from "../src/model/app.binding.js"
@@ -7,29 +8,23 @@ import AppBinding from "../src/model/app.binding.js"
 import App from "../src/object/app.js"
 
 const RootModel = { tagName: "div" }
-let rootBinding
 
-describe("App", () => {
+test.beforeEach((t) => {
+	t.context.virtualDOM = new JSDOM()
+	t.context.window = t.context.virtualDOM.window
+	t.context.document = t.context.window.document
+	t.context.rootBinding = new Binding()
+	Core.run(RootModel, { parentNode: t.context.document.body, binding: t.context.rootBinding })
+})
 
-	beforeEach(() => {
-		rootBinding = new Binding()
-		Core.run(RootModel, { parentNode: document.body, binding: rootBinding })
-	})
+test("instance", (t) => {
+	t.true(AppBinding.prototype instanceof Binding)
+})
 
-	afterEach(() => {
-		rootBinding.remove()
-	})
-
-	it("instance", () => {
-		expect(AppBinding.prototype instanceof Binding).to.equal(true);
-	})
-
-	it("onCreated", () => {
-		const app = new App("Your domodel app is running!")
-		const binding = new AppBinding({ app })
-		rootBinding.run(AppModel, { binding })
-		expect(binding.root.textContent).to.equal("Your domodel app is running!")
-		expect(document.querySelector("#app")).to.equal(binding.root)
-	})
-
+test("onCreated", (t) => {
+	const app = new App("Your domodel app is running!")
+	const binding = new AppBinding({ app })
+	t.context.rootBinding.run(AppModel, { binding })
+	t.is(binding.root.textContent, "Your domodel app is running!")
+	t.is(t.context.document.querySelector("#app"), binding.root)
 })
