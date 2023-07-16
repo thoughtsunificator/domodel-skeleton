@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     name: "Release"
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-20.04"
 
     steps:
       - name: git-checkout
@@ -27,7 +27,7 @@ jobs:
         run: npm test
 
       - name: Automatic release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: "marvinpinto/action-automatic-releases@d68defdd11f9dcc7f52f35c1b7c236ee7513bcc1"
         with:
           repo_token: "${{ secrets.PAT_TOKEN }}"
           prerelease: false
@@ -36,7 +36,7 @@ jobs:
         run: npm run generate-docs
 
       - name: Push documentation
-        uses: s0/git-publish-subdir-action@develop
+        uses: s0/git-publish-subdir-action@92faf786f11dfa44fc366ac3eb274d193ca1af7e
         env:
           REPO: self
           BRANCH: gh-pages
@@ -48,7 +48,7 @@ jobs:
         run: npm run build
 
       - name: Push Build
-        uses: s0/git-publish-subdir-action@develop
+        uses: s0/git-publish-subdir-action@92faf786f11dfa44fc366ac3eb274d193ca1af7e
         env:
           REPO: self
           BRANCH: gh-pages
