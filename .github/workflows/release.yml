@@ -41,7 +41,7 @@ jobs:
           REPO: self
           BRANCH: gh-pages
           FOLDER: docs
-					TARGET_DIR: docs
+          TARGET_DIR: docs
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
