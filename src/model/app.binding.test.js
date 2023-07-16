@@ -2,10 +2,10 @@ import test from "ava"
 import { Core, Binding } from "domodel"
 import { JSDOM } from "jsdom"
 
-import AppModel from "../src/model/app.js"
-import AppBinding from "../src/model/app.binding.js"
+import AppModel from "./app.js"
+import AppBinding from "./app.binding.js"
 
-import App from "../src/object/app.js"
+import App from "../object/app.js"
 
 const RootModel = { tagName: "div" }
 
