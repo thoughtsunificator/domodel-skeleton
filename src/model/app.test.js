@@ -1,4 +1,4 @@
-import App from "../src/object/app.js"
+import App from "../object/app.js"
 import test from "ava"
 
 test("App instance", (t) => {
