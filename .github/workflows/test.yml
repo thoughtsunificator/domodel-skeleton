@@ -14,11 +14,11 @@ jobs:
       - name: npm ci
         run: npm ci
 
-      - name: npm eslint
-        run: npm run eslint
+      - name: lint ecmascript
+        run: npm run lint:ecmascript
 
-      - name: npm stylelint
-        run: npm run stylelint
+      - name: lint css
+        run: npm run lint:css
 
       - name: npm test
         run: npm test
