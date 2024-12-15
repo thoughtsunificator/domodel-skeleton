@@ -12,40 +12,36 @@
 	"homepage": "https://github.com/thoughtsunificator/domodel-skeleton#readme",
 	"author": "Romain Lebesle <oss@thoughtsunificator.me> (https://thoughtsunificator.me)",
 	"scripts": {
-		"start": "rollup --config rollup.config.js --watch --environment BUILD:development",
-		"build": "rollup --config rollup.config.js --environment BUILD:production",
-		"test": "ava",
-		"test-coverage": "c8 ava",
-		"generate-docs": "jsdoc --configure .jsdoc.json --verbose",
-		"eslint": "eslint",
-		"stylelint": "stylelint  'src/**/*.css'"
+		"start": "rollup --config .rollup.js --watch --environment BUILD:development",
+		"build": "rollup --config .rollup.js --environment BUILD:production",
+		"test": "ava --config .ava.js",
+		"test:watch": "ava --config .ava.js --watch",
+		"test:coverage": "c8 -o dist/coverage ava --config .ava.js",
+		"lint:ecmascript": "eslint -c .eslint.js",
+		"lint:css": "stylelint  'src/**/*.css'"
 	},
-	"devDependencies": {
-		"@rollup/plugin-node-resolve": "^15.0.2",
+	"dependencies": {
+		"@rollup/plugin-node-resolve": "^15.3.0",
 		"@thoughtsunificator/rollup-plugin-window-env": "^1.0.7",
-		"@web/test-runner": "^0.13.22",
 		"@wwa/rollup-plugin-terser": "^1.0.1",
-		"ava": "^5.1.0",
-		"c8": "^8.0.0",
-		"docdash": "^1.2.0",
-		"eslint": "^8.5.0",
-		"eslint-import-resolver-custom-alias": "^1.3.0",
-		"eslint-import-resolver-node": "^0.3.6",
-		"jsdoc": "^3.6.7",
-		"jsdom": "^22.0.0",
-		"postcss": "^8.4.5",
-		"postcss-easy-import": "^3.0.0",
-		"postcss-import": "^14.0.2",
+		"domodel": "^2.1.2",
+		"postcss-easy-import": "^4.0.0",
+		"postcss-import": "^16.1.0",
 		"rollup": "^3.7.5",
 		"rollup-plugin-copy-watch": "^0.0.1",
 		"rollup-plugin-livereload": "^2.0.5",
 		"rollup-plugin-postcss": "^4.0.2",
-		"rollup-plugin-serve": "^2.0.2",
+		"rollup-plugin-serve": "^2.0.2"
+	},
+	"devDependencies": {
+		"@thoughtsunificator/mock": "^0.0.11",
+		"ava": "^6.2.0",
+		"c8": "^8.0.0",
+		"eslint": "^9.13.0",
+		"globals": "^15.11.0",
+		"jsdom": "^25.0.1",
+		"knip": "^5.34.2",
 		"stylelint": "^14.1.0",
 		"stylelint-config-standard": "^24.0.0"
-	},
-	"dependencies": {
-		"css-generics": "^1.0.8",
-		"domodel": "^1.0.57"
 	}
 }
