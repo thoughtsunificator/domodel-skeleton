@@ -17,11 +17,11 @@ jobs:
       - name: npm ci
         run: npm ci
 
-      - name: npm eslint
-        run: npm run eslint
+      - name: lint ecmascript
+        run: npm run lint:ecmascript
 
-      - name: npm stylelint
-        run: npm run stylelint
+      - name: lint css
+        run: npm run lint:css
 
       - name: npm test
         run: npm test
@@ -32,18 +32,6 @@ jobs:
           repo_token: "${{ secrets.PAT_TOKEN }}"
           prerelease: false
 
-      - name: Generate documentation
-        run: npm run generate-docs
-
-      - name: Push documentation
-        uses: s0/git-publish-subdir-action@92faf786f11dfa44fc366ac3eb274d193ca1af7e
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: docs
-          TARGET_DIR: docs
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build
         run: npm run build
 
@@ -52,6 +40,6 @@ jobs:
         env:
           REPO: self
           BRANCH: gh-pages
-          FOLDER: dist
+          FOLDER: dist/app-prod
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
